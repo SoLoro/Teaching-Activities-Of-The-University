@@ -215,3 +215,70 @@ void application::on_editButton_clicked()
         myEdition->show();
     }
 }
+
+void application::on_deleteButton_clicked()
+{
+    QSqlQuery deleteQuery = QSqlQuery(myApplicationDB);
+    QString item = ui->comboBox->currentText();
+    bool checker;
+    if (chosenTable == "teachers")
+    {
+        deleteQuery.prepare("SELECT * FROM public.function_delete_teacher(:_name);");
+        deleteQuery.bindValue(":_name", item);
+        checker = deleteQuery.exec();
+        if (!checker)
+            QMessageBox::about(this,"Error", "Ошибка! Преподаватель " + item + " не может быть удален!");
+        else
+        {
+            trayIcon = new QSystemTrayIcon(this);
+            trayIcon->setVisible(true);
+            trayIcon->showMessage("We will miss them!", "Вы успешно удалили" +item + " преподователя.");
+        }
+    }
+    else
+    {
+        if (chosenTable == "workplans")
+        {
+            deleteQuery.prepare("SELECT * FROM public.function_delete_workplan(:_direction);");
+            deleteQuery.bindValue(":_direction", item);
+            checker = deleteQuery.exec();
+            if (!checker)
+                QMessageBox::about(this,"Error", "Error! Направление деятельности " + item + " не может быть удалено!");
+            else
+            {
+                trayIcon = new QSystemTrayIcon(this);
+                trayIcon->setVisible(true);
+                trayIcon->showMessage("Hope to see them again!", "You succesfully deleted " +item);
+            }
+        }
+    }
+    if (chosenTable == "pulpits")
+    {
+        deleteQuery.prepare("SELECT * FROM public.function_delete_pulpit(:_id);");
+        deleteQuery.bindValue(":_id", item.toInt());
+        checker = deleteQuery.exec();
+        if (!checker)
+            QMessageBox::about(this,"Error", "Ошибка!" + item + "Вы успешно удалили!");
+        else
+        {
+            trayIcon = new QSystemTrayIcon(this);
+            trayIcon->setVisible(true);
+            trayIcon->showMessage("Lost!", "Кафедра была удалена");
+        }
+    }
+
+    if (chosenTable == "editions")
+    {
+        deleteQuery.prepare("SELECT * FROM public.function_delete_edition(:_title);");
+        deleteQuery.bindValue(":_title", item);
+        checker = deleteQuery.exec();
+        if (!checker)
+            QMessageBox::about(this,"Error", "Ошибка!" + item + " Издание не может быть удалено!");
+        else
+        {
+            trayIcon = new QSystemTrayIcon(this);
+            trayIcon->setVisible(true);
+            trayIcon->showMessage("It's been great!", "Метод издания был удален");
+        }
+    }
+}
