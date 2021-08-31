@@ -144,3 +144,37 @@ void application::on_showEditions_clicked()
     ui->tableView->setColumnHidden(0, true);
 
 }
+
+void application::on_addButton_clicked()
+{
+    if (chosenTable == "none")
+    {
+        QMessageBox::about(this, "Error", "Выберите таблицу, в которую вы хотите добавить в первую очередь!");
+    }
+
+    if (chosenTable == "teachers")
+    {
+        delete myTeacher;
+        myTeacher = new class teachers ("", false);
+        myTeacher->show();
+    }
+
+    if (chosenTable == "workplans")
+    {
+        delete myWorkplan;
+        myWorkplan = new class workplans ("", false);
+        myWorkplan->show();
+    }
+
+    if (chosenTable == "editions")
+    {
+        delete myEdition;
+        myEdition = new class editions ("", false);
+        myEdition->show();
+    }
+
+    if (chosenTable == "pulpits")
+    {
+        myPulpit->show();
+    }
+}
