@@ -113,3 +113,34 @@ void application::on_showPulpits_clicked()
     comboBoxModel->setQuery(get_pulpit);
     ui->comboBox->setModel(comboBoxModel);
 }
+
+void application::on_showEditions_clicked()
+{
+
+    ui->comboBox->setCurrentIndex(0);
+    editions = new QSqlTableModel(this,myApplicationDB);
+    editions->setTable("editions");
+    editions->select();
+    editions->setHeaderData(0, Qt::Horizontal, tr("ID"));
+    editions->setHeaderData(1, Qt::Horizontal, tr("ФИО"));
+    editions->setHeaderData(2, Qt::Horizontal, tr("Тип произведения"));
+    editions->setHeaderData(3, Qt::Horizontal, tr("Название произведения"));
+    editions->setHeaderData(4, Qt::Horizontal, tr("Источник"));
+    editions->setHeaderData(5, Qt::Horizontal, tr("Кол-во страниц"));
+    editions->setHeaderData(6, Qt::Horizontal, tr("Статус"));
+    editions->setHeaderData(7, Qt::Horizontal, tr("Контактные данные"));
+    ui->tableView->setModel(editions);
+    chosenTable = "editions";
+    myTeacher->hide();
+    myPulpit->hide();
+    myWorkplan->hide();
+
+    comboBoxModel = new QSqlQueryModel;
+    QSqlQuery get_editions = QSqlQuery(myApplicationDB);
+    get_editions.prepare("SELECT edition_title FROM editions");
+    get_editions.exec();
+    comboBoxModel->setQuery(get_editions);
+    ui->comboBox->setModel(comboBoxModel);
+    ui->tableView->setColumnHidden(0, true);
+
+}
