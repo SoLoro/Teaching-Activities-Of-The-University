@@ -340,3 +340,14 @@ void application::on_tableView_doubleClicked(const QModelIndex &index)
     ui->comboBox->setCurrentIndex(index.row());
 }
 
+void application::on_showLogs_clicked()
+{
+    logs = new QSqlTableModel(this,myApplicationDB);
+    logs->setTable("logs");
+    logs->select();
+    ui->tableView->setModel(logs);
+    chosenTable = "logs";
+
+    comboBoxModel = new QSqlQueryModel;
+    ui->comboBox->setModel(comboBoxModel);
+}
