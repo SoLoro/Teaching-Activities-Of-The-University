@@ -178,3 +178,40 @@ void application::on_addButton_clicked()
         myPulpit->show();
     }
 }
+
+
+void application::on_editButton_clicked()
+{
+    if (chosenTable == "none")
+    {
+        QMessageBox::about(this, "Error", "Выберите таблицу, которую вы хотите отредактировать в первую очередь!");
+    }
+
+    if (chosenTable == "teachers")
+    {
+        delete myTeacher;
+        myTeacher = new class teachers (ui->comboBox->currentText(), true);
+        myTeacher->show();
+    }
+
+    if (chosenTable == "workplans")
+    {
+        delete myWorkplan;
+        myWorkplan = new class workplans (ui->comboBox->currentText(), true);
+        myWorkplan->show();
+    }
+
+    if (chosenTable == "pulpits")
+    {
+        delete myPulpit;
+        myPulpit = new class pulpits(ui->comboBox->currentText().toInt(), true);
+        myPulpit->show();
+    }
+
+    if (chosenTable == "editions")
+    {
+        delete myEdition;
+        myEdition = new class editions (ui->comboBox->currentText(), true);
+        myEdition->show();
+    }
+}
