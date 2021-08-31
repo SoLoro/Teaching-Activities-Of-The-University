@@ -15,19 +15,22 @@ SOURCES += \
     editions.cpp \
     main.cpp \
     mainwindow.cpp \
-    pulpits.cpp
+    pulpits.cpp \
+    teachers.cpp
 
 HEADERS += \
     application.h \
     editions.h \
     mainwindow.h \
-    pulpits.h
+    pulpits.h \
+    teachers.h
 
 FORMS += \
     application.ui \
     editions.ui \
     mainwindow.ui \
-    pulpits.ui
+    pulpits.ui \
+    teachers.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
