@@ -1,21 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <author/>
- <comment/>
- <exportmacro/>
- <class>application</class>
- <widget name="application" class="QWidget">
+ <class>myvariant</class>
+ <widget class="QWidget" name="myvariant">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>1017</width>
+    <height>538</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(230, 230, 250);</string>
+  </property>
+  <widget class="QPushButton" name="showPulpits">
+   <property name="geometry">
+    <rect>
+     <x>820</x>
+     <y>260</y>
+     <width>141</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Bahnschrift SemiLight</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(176, 196, 222);</string>
+   </property>
+   <property name="text">
+    <string>Кафедры</string>
+   </property>
+   <property name="autoDefault">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="showEditions">
+   <property name="geometry">
+    <rect>
+     <x>820</x>
+     <y>320</y>
+     <width>171</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Bahnschrift SemiLight</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(176, 196, 222);</string>
+   </property>
+   <property name="text">
+    <string>Изд. деятельности</string>
+   </property>
+   <property name="autoDefault">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="showTeachers">
+   <property name="geometry">
+    <rect>
+     <x>820</x>
+     <y>140</y>
+     <width>141</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Bahnschrift SemiLight</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(176, 196, 222);</string>
+   </property>
+   <property name="text">
+    <string>Преподаватели</string>
+   </property>
+   <property name="autoDefault">
+    <bool>false</bool>
+   </property>
+   <property name="flat">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>440</y>
+     <width>321</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Bahnschrift SemiLight</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(176, 196, 222);</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="showWorkplans">
+   <property name="geometry">
+    <rect>
+     <x>820</x>
+     <y>200</y>
+     <width>181</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Bahnschrift SemiLight</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(176, 196, 222);</string>
+   </property>
+   <property name="text">
+    <string>Планы метод. работы</string>
+   </property>
+   <property name="autoDefault">
+    <bool>false</bool>
+   </property>
+   <property name="flat">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="deleteButton">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>440</y>
+     <width>121</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Bahnschrift SemiLight</family>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(176, 196, 222);</string>
+   </property>
+   <property name="text">
+    <string>Удалить</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="addButton">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>440</y>
+     <width>121</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Bahnschrift SemiLight</family>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(176, 196, 222);</string>
+   </property>
+   <property name="text">
+    <string>Добавить</string>
+   </property>
+  </widget>
+  <widget class="QTableView" name="tableView">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>120</y>
+     <width>761</width>
+     <height>301</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Helvetica Neue</family>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
+   </property>
+   <property name="wordWrap">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="showLogs">
+   <property name="geometry">
+    <rect>
+     <x>820</x>
+     <y>381</y>
+     <width>131</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Bahnschrift SemiLight</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(176, 196, 222);</string>
+   </property>
+   <property name="text">
+    <string>Логи</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="editButton">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>440</y>
+     <width>121</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Bahnschrift SemiLight</family>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(176, 196, 222);</string>
+   </property>
+   <property name="text">
+    <string>Изменить</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_2">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>70</y>
+     <width>441</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Bahnschrift SemiLight</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(176, 196, 222);</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>Количество преподавателей на кафедре высшей математики</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Издательская деятельность каждого из преподавателей</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Значения издательских деятельностей кафедр по добавочным номерам кафедр</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Данные о преподавателях кафедры по номеру телефона кафедры &lt;4000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Данные о кафедре, на которой работает преподаватель Жуков</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QPushButton" name="funcButton">
+   <property name="geometry">
+    <rect>
+     <x>820</x>
+     <y>70</y>
+     <width>141</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Bahnschrift SemiLight</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(176, 196, 222);</string>
+   </property>
+   <property name="text">
+    <string>Функции</string>
+   </property>
+  </widget>
  </widget>
- <pixmapfunction/>
+ <resources/>
  <connections/>
 </ui>
