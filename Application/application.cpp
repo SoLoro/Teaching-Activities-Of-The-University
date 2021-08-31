@@ -56,3 +56,30 @@ void application::on_showTeachers_clicked()
     ui->comboBox->setModel(comboBoxModel);
     ui->tableView->setColumnHidden(0, true);
 }
+
+void application::on_showWorkplans_clicked()
+{
+    ui->comboBox->setCurrentIndex(0);
+    workplans = new QSqlTableModel(this,myApplicationDB);
+    workplans->setTable("workplans");
+    workplans->select();
+    workplans->setHeaderData(0, Qt::Horizontal, tr("ID"));
+    workplans->setHeaderData(1, Qt::Horizontal, tr("Направление деятельн."));
+    workplans->setHeaderData(2, Qt::Horizontal, tr("Задачи"));
+    workplans->setHeaderData(3, Qt::Horizontal, tr("Ожидаемый результат"));
+    workplans->setHeaderData(4, Qt::Horizontal, tr("Срок сдачи"));
+    workplans->setHeaderData(5, Qt::Horizontal, tr("Ответственный"));
+    ui->tableView->setModel(workplans);
+    chosenTable = "workplans";
+    myTeacher->hide();
+    myPulpit->hide();
+    myEdition->hide();
+
+    comboBoxModel = new QSqlQueryModel;
+    QSqlQuery get_workplans = QSqlQuery(myApplicationDB);
+    get_workplans.prepare("SELECT workplan_direction FROM workplans");
+    get_workplans.exec();
+    comboBoxModel->setQuery(get_workplans);
+    ui->comboBox->setModel(comboBoxModel);
+    ui->tableView->setColumnHidden(0, true);
+}
