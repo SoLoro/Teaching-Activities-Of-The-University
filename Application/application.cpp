@@ -282,3 +282,56 @@ void application::on_deleteButton_clicked()
         }
     }
 }
+
+void application::on_funcButton_clicked()
+{
+    ui->tableView->setColumnHidden(0, false);
+    QSqlQuery function = QSqlQuery(myApplicationDB);
+    QString item = ui->comboBox_2->currentText();
+    if(item=="Количество преподавателей на кафедре высшей математики")
+    {
+        function.prepare("SELECT workplan_direction,SUM (CASE WHEN pulpit_workplan_id = 2 THEN 1 ELSE  0 END) AS workplan_pulpits FROM workplans, pulpits WHERE 	pulpit_workplan_id = workplan_id AND workplan_id = 2 GROUP BY workplan_direction");
+        function.exec();
+
+        QSqlQueryModel *myModel = new QSqlQueryModel;
+        myModel->setQuery(function);
+        ui->tableView->setModel(myModel);
+    }
+    if(item=="Издательская деятельность каждого из преподавателей")
+    {
+        function.prepare("SELECT * FROM edition_pulpits ORDER BY amount");
+        function.exec();
+
+        QSqlQueryModel *myModel = new QSqlQueryModel;
+        myModel->setQuery(function);
+        ui->tableView->setModel(myModel);
+    }
+    if(item=="Значения издательских деятельностей кафедр по добавочным номерам кафедр")
+    {
+        function.prepare("SELECT pulpit_id, pulpit_telephone, (select edition_title from editions where edition_id=pulpit_edition_id) from pulpits");
+        function.exec();
+
+        QSqlQueryModel *myModel = new QSqlQueryModel;
+        myModel->setQuery(function);
+        ui->tableView->setModel(myModel);
+    }
+    if(item=="Данные о преподавателях кафедры по номеру телефона кафедры <4000")
+    {
+        function.prepare("SELECT  pulpit_teacher_id , min(pulpit_telephone),pulpit_title, teacher_name,teacher_discipline FROM   pulpits, teachers WHERE teacher_id = pulpit_teacher_id GROUP BY pulpit_teacher_id,pulpit_title, teacher_name,teacher_discipline HAVING (min(pulpit_telephone)<='4000');");
+        function.exec();
+
+        QSqlQueryModel *myModel = new QSqlQueryModel;
+        myModel->setQuery(function);
+        ui->tableView->setModel(myModel);
+    }
+    if(item=="Данные о кафедре, на которой работает преподаватель Жуков")
+    {
+        function.prepare("SELECT pulpit_title, pulpit_telephone, pulpit_head FROM	pulpits  WHERE pulpit_teacher_id = ANY (SELECT teacher_id FROM teachers WHERE teacher_name = 'Жуков Даниил Семёнович') ");
+        function.exec();
+
+        QSqlQueryModel *myModel = new QSqlQueryModel;
+        myModel->setQuery(function);
+        ui->tableView->setModel(myModel);
+    }
+}
+
