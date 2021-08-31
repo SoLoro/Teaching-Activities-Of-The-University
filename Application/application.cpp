@@ -335,3 +335,8 @@ void application::on_funcButton_clicked()
     }
 }
 
+void application::on_tableView_doubleClicked(const QModelIndex &index)
+{
+    ui->comboBox->setCurrentIndex(index.row());
+}
+
