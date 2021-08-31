@@ -83,3 +83,33 @@ void application::on_showWorkplans_clicked()
     ui->comboBox->setModel(comboBoxModel);
     ui->tableView->setColumnHidden(0, true);
 }
+
+void application::on_showPulpits_clicked()
+{
+    ui->comboBox->setCurrentIndex(0);
+    pulpits = new QSqlTableModel(this,myApplicationDB);
+    QSqlQuery get_pulpits = QSqlQuery(myApplicationDB);
+    get_pulpits.prepare("SELECT pulpit_id, pulpit_title, pulpit_telephone,pulpit_head, (select teacher_name from teachers where teacher_id=pulpit_teacher_id),(select workplan_direction from workplans where workplan_id=pulpit_workplan_id),(select edition_title from editions where edition_id=pulpit_edition_id) FROM pulpits");
+    get_pulpits.exec();
+    pulpits->setQuery(get_pulpits);
+    pulpits->setHeaderData(0, Qt::Horizontal, tr("ID"));
+    pulpits->setHeaderData(1, Qt::Horizontal, tr("Название кафедры"));
+    pulpits->setHeaderData(2, Qt::Horizontal, tr("Телефон"));
+    pulpits->setHeaderData(3, Qt::Horizontal, tr("Заведующий"));
+    pulpits->setHeaderData(4, Qt::Horizontal, tr("ФИО преподавателя"));
+    pulpits->setHeaderData(5, Qt::Horizontal, tr("Название плана работы"));
+    pulpits->setHeaderData(6, Qt::Horizontal, tr("Название произведения"));
+    ui->tableView->setModel(pulpits);
+    chosenTable = "pulpits";
+    myWorkplan->hide();
+    myTeacher->hide();
+    myEdition->hide();
+    ui->tableView->setColumnHidden(0, true);
+
+    comboBoxModel = new QSqlQueryModel;
+    QSqlQuery get_pulpit = QSqlQuery(myApplicationDB);
+    get_pulpit.prepare("SELECT pulpit_id FROM pulpits");
+    get_pulpit.exec();
+    comboBoxModel->setQuery(get_pulpit);
+    ui->comboBox->setModel(comboBoxModel);
+}
