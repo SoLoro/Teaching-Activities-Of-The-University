@@ -105,4 +105,11 @@ ____
     - The upper comboBox and the button ,,Functions,, are responsible for receiving and processing specific database requests with their corresponding display on the central window
     - The lower buttons ,,Add,, , ,,Change,, , ,,Delete,, paired with the lower comboBox and double-clicking on the elements in the central window allow you to work with the database in the current time
         - **When you click on ,,Add,, , ,,Change,, a window pops up on the screen with fields for filling in the information corresponding to the requested function**
+
+____
+## What is this project about?
+This project first of all shows and justifies how the logical chains of the working structure of institutions are interconnected, with the help of which contact occurs between them and how this affects the system as a whole
+____
+## What is this project for?
+I show my skills in developing client-server applications using modern technologies and databases(tables and relationships, complex queries of different types, views, indexes, triggers, stored procedures, commit and rollback transactions, cursors for updating data, scalar and vector functions, referential integrity, distribution of user rights)
    
