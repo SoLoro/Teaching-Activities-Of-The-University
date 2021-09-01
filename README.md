@@ -56,3 +56,44 @@ ____
             ```
             
         - **In terminal environments, all commands will be similar to paragraph 1.2), except for the use of the additional option ,,sudo,,**
+       
+    - **Using an SQL file:**
+   
+        - **Using pgAdmin**
+       
+            - You need to create a new database and name it ,,database,,.
+            - Then go to the requester window and select the db.sql file, run the execution of this query.
+            - *When a pop-up notification appears about the successful completion of data processing , if they are not displayed in the database window, after a couple of seconds, right-click on our database and select ,,Update,,*
+           
+        - **Using containers (Docker, Kubernetes and others) (For example, Docker):**
+       
+            - First you need to download postgres 
+            ```
+                docker pull postgres
+            ```
+            - Then you need to create the appropriate container
+            ```
+                docker run --name <postgres_container_name> -e  POSTGRES_PASSWORD=<postgres_container_password>-d -p 5432:5432 <postgres_with_version>
+            ```
+            - Open this container
+            ```
+                docker exec -it <postgres_container_name> bash 
+            ```
+            - Log in to it from the user account
+            ```
+                psql -h localhost -p 5432 -U <your_postgres_user>
+            ```
+            - Create a database
+            ```
+                create database database
+            ```
+            - Switch to it
+            ```
+                \c database
+            ```
+            - Go to the file system partition and restore by backup
+            ```
+                cat db.sql | docker exec -i <postgres_container_name> psql -U <your_postgres_user>
+            ```
+           
+        - **In terminal environments, all commands will be similar to paragraph 1.2), except for the use of the additional option ,,sudo,,**
