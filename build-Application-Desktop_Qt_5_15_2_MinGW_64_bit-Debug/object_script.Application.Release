@@ -1,0 +1,13 @@
+release/application.o
+release/editions.o
+release/main.o
+release/mainwindow.o
+release/pulpits.o
+release/teachers.o
+release/workplans.o
+release/moc_application.o
+release/moc_editions.o
+release/moc_mainwindow.o
+release/moc_pulpits.o
+release/moc_teachers.o
+release/moc_workplans.o
