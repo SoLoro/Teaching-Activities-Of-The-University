@@ -14,13 +14,18 @@ ____
 ## How to use it?
 - After downloading the files, you first need to restore the developed database. The folder ,,Database,, contains 2 views of the same database, using either or each of them, you can get full access to the idea and implementation of the project.
 - ___Recovery paths___:
+
     - **Using a backup:**
+ 
         - **Using pgAdmin**
+     
             - You need to create a new database and name it ,,database,, .
             - Then right-click on it and select ,,Restore,,
             - In the window that opens, change the format to ,,Special,, and find the file database.backup, click ,,Restore,,.
             - *After a couple of seconds, if there is no new data, right - click on our database and select ,,Update,,*
-        - **Using containers (Docker, Kubernetes and others) (For example, Docker):**
+        
+        - **Using containers (Docker, Kubernetes and others) (For example, Docker)**
+
             - First you need to download postgres 
             ```
                 docker pull postgres
@@ -49,4 +54,5 @@ ____
             ```
                 docker exec -i -u <your_postgres_user> <postgres_container_name> pg_restore -C -d postgres < database.backup
             ```
-        - *In terminal environments, all commands will be similar to paragraph 1.2), except for the use of the additional option ,,sudo,,*
+            
+        - **In terminal environments, all commands will be similar to paragraph 1.2), except for the use of the additional option ,,sudo,,**
