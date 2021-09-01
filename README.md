@@ -55,7 +55,7 @@ ____
                 docker exec -i -u <your_postgres_user> <postgres_container_name> pg_restore -C -d postgres < database.backup
             ```
             
-        - **In terminal environments, all commands will be similar to paragraph 1.2), except for the use of the additional option ,,sudo,,**
+        - **In terminal environments, all commands will be similar to paragraph 2, except for the use of the additional option ,,sudo,,**
        
     - **Using an SQL file:**
    
@@ -96,4 +96,13 @@ ____
                 cat db.sql | docker exec -i <postgres_container_name> psql -U <your_postgres_user>
             ```
            
-        - **In terminal environments, all commands will be similar to paragraph 1.2), except for the use of the additional option ,,sudo,,**
+        - **In terminal environments, all commands will be similar to paragraph 2, except for the use of the additional option ,,sudo,,**
+        
+- ___Next, you need to run the application itself Application.pro___
+- The ,,mainwindow,, authorization window opens in front of you , in which you need to enter the database user data
+- *In case of successful authorization, a window ,,application,, , will appear in front of you, on which the main functionality of the program is located*
+    - The buttons ,,Teachers,, , ,,Workplans,, , ,,Pulpits,, , ,,Editions,, and ,,Logs,, are responsible for displaying the current database information on the central table window and allow you to work with yourself using the buttons ,,Add,, , ,,Change,, , ,,Delete,,
+    - The upper comboBox and the button ,,Functions,, are responsible for receiving and processing specific database requests with their corresponding display on the central window
+    - The lower buttons ,,Add,, , ,,Change,, , ,,Delete,, paired with the lower comboBox and double-clicking on the elements in the central window allow you to work with the database in the current time
+        - **When you click on ,,Add,, , ,,Change,, a window pops up on the screen with fields for filling in the information corresponding to the requested function**
+   
