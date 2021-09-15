@@ -12,7 +12,7 @@ ____
 *QT*
 ____
 ## How to use it?
-- After downloading the files, you first need to restore the developed database. The folder ,,Database,, contains 2 views of the same database, using either or each of them, you can get full access to the idea and implementation of the project.
+- After downloading the files, you need to restore the developed database first. The folder ,,Database,, contains 2 views of the same database, using either or each of them, you can get full access to the idea and implementation of the project.
 - ___Recovery paths___:
 
     - **Using a backup:**
@@ -63,7 +63,7 @@ ____
        
             - You need to create a new database and name it ,,database,,.
             - Then go to the requester window and select the db.sql file, run the execution of this query.
-            - *When a pop-up notification appears about the successful completion of data processing , if they are not displayed in the database window, after a couple of seconds, right-click on our database and select ,,Update,,*
+            - *When a pop-up about the successful completion of data processing notification appears , if they are not displayed in the database window, after a couple of seconds, right-click on our database and select ,,Update,,*
            
         - **Using containers (Docker, Kubernetes and others) (For example, Docker):**
        
@@ -98,7 +98,7 @@ ____
            
         - **In terminal environments, all commands will be similar to paragraph 2, except for the use of the additional option ,,sudo,,**
         
-- ___Next, you need to run the application itself Application.pro___
+- ___Next, you need to run the application Application.pro itself___
 - The ,,mainwindow,, authorization window opens in front of you , in which you need to enter the database user data
 - *In case of successful authorization, a window ,,application,, , will appear in front of you, on which the main functionality of the program is located*
     - The buttons ,,Teachers,, , ,,Workplans,, , ,,Pulpits,, , ,,Editions,, and ,,Logs,, are responsible for displaying the current database information on the central table window and allow you to work with yourself using the buttons ,,Add,, , ,,Change,, , ,,Delete,,
